@@ -23,13 +23,14 @@ ActiveRecord::Schema.define(version: 20161115124010) do
     t.string   "country"
     t.string   "state"
     t.string   "city"
-    t.string   "zipcode"
+    t.string   "postal_code"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.index ["latitude", "longitude"], name: "index_user_profiles_on_latitude_and_longitude", using: :btree
   end
 
 end

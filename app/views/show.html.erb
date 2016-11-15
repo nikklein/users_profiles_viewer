@@ -2,11 +2,8 @@
 <% if @users.any? %>
   <% @users.each do |user| %>
     <h2> <%= user.username %> </h2>
-    <h2> <%= user.city %> </h2>
-    <h2> <%= user.country %> </h2>
-    <% if user.image.url %>
-    <%= image_tag user.image.url(:medium) %>
-    <% end %>
+    <h2> <%= user.city user.counrty %> </h2>
+    <%= image_tag user.image.url(:orginal) %>
   <% end %>
 <% else %>
   No profiles yet
