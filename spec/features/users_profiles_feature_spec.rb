@@ -8,4 +8,21 @@ feature 'user profiles' do
       expect(page).to have_link 'Show all profiles'
     end
   end
+
+  context 'displayed on the main page' do
+    before do
+      username = 'test_user'
+      latitude = '51.500152'.to_f
+      longitude = '-0.126236'.to_f
+
+      UserProfile.create(username: username, latitude: latitude, longitude: longitude)
+    end
+    scenario 'display user profile' do
+      visit '/users_profiles'
+      click_link('Show all profiles')
+      expect(page).to have_content(username)
+      expect(page).to have_content(geolocation)
+      expect(page).not_to have_content('Show all profiles')
+    end
+  end
 end

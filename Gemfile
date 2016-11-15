@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'rubocop', '~> 0.45.0', require: false
-gem 'paperclip'
-gem 'aws-sdk'
+gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk', '~> 2.3.0'
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
