@@ -9,19 +9,20 @@ feature 'user profiles' do
     end
   end
 
-  context 'displayed on the main page' do
-    before do
-      username = 'test_user'
-      latitude = '51.500152'.to_f
-      longitude = '-0.126236'.to_f
+  before(:each) do
+    @username = 'test_user'
+    @latitude = '51.500152'
+    @longitude = '-0.126236'
+    @geolocation = 'London, UK'
+  end
 
-      UserProfile.create(username: username, latitude: latitude, longitude: longitude)
-    end
+  context 'displayed on the main page' do
     scenario 'display user profile' do
+      UserProfile.create(username: @username, latitude: @latitude, longitude: @longitude)
       visit '/users_profiles'
       click_link('Show all profiles')
-      expect(page).to have_content(username)
-      expect(page).to have_content(geolocation)
+      expect(page).to have_content(@username)
+      expect(page).to have_content(@geolocation)
       expect(page).not_to have_content('Show all profiles')
     end
   end
