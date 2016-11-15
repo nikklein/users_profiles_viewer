@@ -9,6 +9,8 @@ class UserProfile < ApplicationRecord
       obj.country = geo.country_code
     end
   end
-
   after_validation :reverse_geocode
+  def image_url
+    image.url(:medium)
+   end
 end
