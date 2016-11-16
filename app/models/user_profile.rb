@@ -12,5 +12,5 @@ class UserProfile < ApplicationRecord
   after_validation :reverse_geocode
   def image_url
     image.url(:medium)
-   end
+  end
 end

@@ -1,0 +1,11 @@
+$(document).ready(
+     function(){
+          $("a#trigger").bind("ajax:success",
+                   function(evt, data, status, xhr){
+
+                        $("div#response").html(data);
+           }).bind("ajax:error", function(evt, data, status, xhr){
+                    
+                    $("div#errors p").text(data);
+           });
+});

@@ -1,13 +1,5 @@
-<a href='#'>Show all profiles</a>
-<% if @users.any? %>
-  <% @users.each do |user| %>
-    <h2> <%= user.username %> </h2>
-    <h2> <%= user.city %> </h2>
-    <h2> <%= user.country %> </h2>
-    <% if user.image.url %>
-    <%= image_tag user.image.url(:medium) %>
-    <% end %>
-  <% end %>
-<% else %>
-  No profiles yet 
-<% end %>
+<div id="response">
+</div>
+<div id="1">
+  <%= link_to 'Show all profiles', "/users_profiles/show", :remote => true, :html => {:class => "trigger"}%>
+</div>

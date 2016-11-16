@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115124010) do
+ActiveRecord::Schema.define(version: 20161116160332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 20161115124010) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.index ["latitude", "longitude"], name: "index_user_profiles_on_latitude_and_longitude", using: :btree
+    t.index ["username", "address"], name: "index_user_profiles_on_username_and_address", using: :btree
+    t.index ["username", "city", "country"], name: "index_user_profiles_on_username_and_city_and_country", using: :btree
+    t.index ["username", "city"], name: "index_user_profiles_on_username_and_city", using: :btree
+    t.index ["username", "country"], name: "index_user_profiles_on_username_and_country", using: :btree
+    t.index ["username", "postal_code"], name: "index_user_profiles_on_username_and_postal_code", using: :btree
+    t.index ["username", "state"], name: "index_user_profiles_on_username_and_state", using: :btree
   end
 
 end
